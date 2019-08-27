@@ -27,7 +27,7 @@ cd ~/development
 And run the command:
 
 ```bash
-git clone git@git.generalassemb.ly:SEI-43-LONDON/CLASSWORK.git
+git clone <copy and paste>
 ```
 
 ### Step 3. Setup the upstream
@@ -41,7 +41,7 @@ Let's go and grab the SSH for that original repository.
 Now make sure that you're in your locally cloned fork of your classwork and type:
 
 ```bash
-git remote add upstream git@git.generalassemb.ly:SEI-41-LONDON/CLASSWORK.git
+git remote add upstream git@git.generalassemb.ly:SEI-43-LONDON/CLASSWORK.git
 ```
 
 ## Fetching starter-code
