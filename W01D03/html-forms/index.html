@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Forms</title>
+</head>
+<body>
+  <form>
+    <!-- text input with a label, version 1. the 2 name attibutes tie the label and input tags together (siblings)-->
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Name" />
+    <br />
+    <!-- inputs are inline elements -->
+    
+
+    <!-- text input with a label, version 2 (parent/child)-->
+    <label>
+      Email
+      <input type="text" placeholder="Email" />
+    </label>
+    <br />
+
+    <!-- radio buttons -->
+    <label>
+      Radio Button -Pick Me!
+      <input type="radio" name="" id="" checked />
+    </label>
+    <br />
+
+    <!-- checkboxes -->
+    <label>
+      Check Me!
+      <input type="checkbox" />
+    </label>
+    <br />
+
+    <!-- and the rest... -->
+
+    <label>
+      |Password
+      <input type="password" placeholder="password">
+    </label>
+    <br />
+
+    <label>
+      Select, not a drop down box...
+      <select name="" id="">
+        <option disabled selected>Pick an Option</option>
+        <option value="">Hello</option>
+        <option value="">Morning</option>
+        <option value="">Goodbye</option>
+      </select>
+    </label>
+    <br />
+
+    <!-- submission options. Buttons only work within the form tags. However if you give the button a type of button it will no longer try to submit -->
+    <input type="submit" value="Submit!">
+    <button>Does this submit?</button>
+
+    <!-- email, textarea, color (colour picker, range, date, month, time, number (with min and max attributes), file. Also a "type" reset (will create a button to reset form)) -->
+
+  </form>
+</body>
+</html>

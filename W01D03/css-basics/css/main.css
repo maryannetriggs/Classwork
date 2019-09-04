@@ -1,0 +1,31 @@
+.mammal {
+  text-decoration: underline
+}
+
+.bird {
+  font-style: italic;
+}
+
+.fish {
+  font-weight: bold;
+}
+
+#mouse {
+  color: gray;
+}
+
+#goldfish {
+  color: gold;
+}
+
+#sheep {
+  color: steelblue;
+}
+
+body {
+  font-size: 50px;
+}
+
+ul {
+  list-style: none;
+}
