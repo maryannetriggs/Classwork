@@ -1,0 +1,32 @@
+/* presentation purposes */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #FFF;
+}
+
+header, footer, aside, section {
+  padding: 20px;
+}
+
+header, footer {
+  background: dodgerblue;
+}
+
+section:last-of-type {
+  background: orange;
+}
+
+section {
+  color: #777;
+}
+
+/* flex layout stuff */

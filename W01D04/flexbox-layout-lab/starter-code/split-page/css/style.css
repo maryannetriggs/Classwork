@@ -1,0 +1,27 @@
+/* presentation */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #FFF;
+}
+
+header, footer, section {
+  padding: 20px;
+}
+
+header, footer {
+  background: dodgerblue;
+}
+
+section {
+  color: #777;
+}
+
+/* flex layout */
