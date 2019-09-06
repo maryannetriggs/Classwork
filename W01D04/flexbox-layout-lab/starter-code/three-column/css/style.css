@@ -21,7 +21,7 @@ header, footer {
   background: dodgerblue;
 }
 
-section:last-of-type {
+section:last-of-type, section:first-of-type {
   background: orange;
 }
 
@@ -30,3 +30,38 @@ section {
 }
 
 /* flex layout stuff */
+
+div.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+section:nth-of-type(1) {
+  flex: 1;
+}
+
+section:nth-of-type(2) {
+  flex: 3;
+}
+
+section:nth-of-type(3) {
+  flex: 1;
+}
+
+@media only screen and (max-width: 840px) {
+
+  section:first-of-type {
+    display: none;
+  }
+
+  main {
+    flex-direction: column;
+  }
+  
+}

@@ -24,4 +24,34 @@ section {
   color: #777;
 }
 
+section:last-of-type {
+  background-color: orange;
+}
+
 /* flex layout */
+
+div.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+section:first-of-type {
+  flex: 1;
+}
+
+section:last-of-type {
+  flex: 1;
+}
+
+@media only screen and (max-width: 840px) {
+
+  section:last-of-type {
+    display: none;
+  }
+  
