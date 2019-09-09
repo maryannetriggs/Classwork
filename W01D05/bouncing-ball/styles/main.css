@@ -1,0 +1,34 @@
+div.ball {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 100%;
+  animation: bounce 3s infinite linear, moveLeft 10s infinite linear;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0;
+  }
+  30% {
+    bottom: 0;
+    width: 110px;
+    height: 70px;
+  }
+  33% {
+    bottom 0;
+    width: 100px;
+    height: 100px;
+  }
+  70% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes moveLeft {
+  
+}

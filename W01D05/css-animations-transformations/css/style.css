@@ -26,6 +26,42 @@ div {
   justify-content: center;
   align-items: center;
   transition: transform 1s ease;
+  cursor: pointer;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translate(0, 200px)  rotate(360deg);
+  }
+  66% {
+    transform: translate(0, -200px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 /* your styles below */
+
+div.scale:hover {
+  transform: scale(2);
+}
+
+div.rotate:hover {
+  transform: rotate(-360deg);
+}
+
+div.translate:hover {
+  transform: translate(-100px, 50px);
+}
+
+div.skew:hover {
+  transform: skewX(20deg);
+}
+
+div.animate {
+  animation: move 6s infinite;
+}
