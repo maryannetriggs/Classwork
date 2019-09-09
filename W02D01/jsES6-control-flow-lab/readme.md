@@ -48,8 +48,7 @@ This is a lab for you to practice control flow with JavaScript. Complete the fol
 
 ## Tips
 
-- Make sure you plan before you start using pseudocode.
-- Once you have broken a problem down, use Google to help you with a specific step. Asking 'How do I make a color converter in JavaScript' is unlikely to be helpful, whereas 'How do I convert a HEX to decimal in JavaScript' probably would.
-- Use console log to check that your values are as expected as you code. You can check the data type with `typeof`.
+- Make sure you plan before you start write down the decision you will mkae.
+- Once you have broken a problem down, use Google to help you with a specific step. - Use console log to check that your values are as expected as you code. You can check the data type with `typeof`.
 - **Be careful with loops!** If you find that you are in an infinite loop, close the browser window immediately. If your browser is unresponsive choose Force Quit... from the Apple menu, select Chrome, click 'Force Quit'.
 - Once you have a solution, comment it out (<kbd>CMD</kbd> + <kbd>/</kbd>) so that it does not interfere with the next one.
