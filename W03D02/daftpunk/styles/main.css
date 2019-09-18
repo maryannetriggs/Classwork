@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+}
+
+div.img-wrapper {
+  
+  align-content: center;
+  display: flex
+}
+
+img {
+  width: 400px;
+  margin: 0 auto;
+  padding: 12px, 0;
+}
+
+div.sound-wrapper {
+  max-width: 700px;
+}
+
+div.sound-wrapper div {
+  height: 140px;
+  background-color: aliceblue;
+  border: 5px black solid;
+  border-radius: 30px;
+  display: flex;
+}
+
+div.sound-wrapper p {
+  align-self: center;
+  margin: 0 auto;
+  
+}
+
+div.extra-space {
+  background-color: black;
+  height: 100px;
+}
