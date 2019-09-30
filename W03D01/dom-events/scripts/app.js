@@ -92,7 +92,7 @@ window.addEventListener('load', () => {
   //   console.log(e.key)
   // })
 
-// Radio button - change (when radio button is clicked upon and checkboxes)
+  // Radio button - change (when radio button is clicked upon and checkboxes)
 
   // const submit = document.querySelector('#form')
 
