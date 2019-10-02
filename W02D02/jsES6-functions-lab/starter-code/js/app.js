@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 // // Question 1
 
 // function maxOfTwoNumbers(num1, num2) {
 //   return Math.max(num1, num2)
 // }
+=======
+// Question 1
+function maxOfTwoNumbers(x, y) {
+  if (x > y)  return x
+  return y
+}
+>>>>>>> 108fe3e2907984d8e388fd721a9688c145d651a5
 
 // console.log(maxOfTwoNumbers(9, 4))
 
@@ -15,6 +23,7 @@
 //     return num2
 // }
 
+<<<<<<< HEAD
 
 // // Question 2
 
@@ -39,6 +48,11 @@
 //     default: return false
 //   }
 // }
+=======
+// Question 3
+function numberOfArguments(){
+}
+>>>>>>> 108fe3e2907984d8e388fd721a9688c145d651a5
 
 // console.log(isCharacterAVowel('b'))
 
