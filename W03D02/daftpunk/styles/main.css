@@ -7,26 +7,25 @@
 body {
   background-color: black;
   height: 100vh;
-}
-
-div.img-wrapper {
-  
-  align-content: center;
-  display: flex
+  display: flex;
+  flex-direction: column;
 }
 
 img {
   width: 400px;
   margin: 0 auto;
-  padding: 12px, 0;
 }
 
 div.sound-wrapper {
-  max-width: 700px;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 div.sound-wrapper div {
-  height: 140px;
+  height: 150px;
+  width: 150px;
   background-color: aliceblue;
   border: 5px black solid;
   border-radius: 30px;
@@ -37,9 +36,4 @@ div.sound-wrapper p {
   align-self: center;
   margin: 0 auto;
   
-}
-
-div.extra-space {
-  background-color: black;
-  height: 100px;
 }

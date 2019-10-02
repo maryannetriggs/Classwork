@@ -1,0 +1,13 @@
+@import 'button'
+
+$myRed: #ff000;
+
+div {
+  button {
+    background-color: $myRed;
+  }
+}
+
+button {
+  background-color: blue;
+}

@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
   const audioList = document.querySelectorAll('audio')
 
   soundElements.forEach((elem, index) => {
-    elem.addEventListener('click', elem => {
+    elem.addEventListener('click', () => {
       audioList[index].play()
     })
   })
