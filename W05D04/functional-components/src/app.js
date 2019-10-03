@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import County from './components/County';
 
 class App extends React.Component {
   constructor() {
@@ -45,7 +46,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>Hello World 😃</h1>
+      <>
+        {this.state.counties.map(county => (
+          <County key={county.name} {...county}/>
+        ))}
+      </>
     )
   }
 }
