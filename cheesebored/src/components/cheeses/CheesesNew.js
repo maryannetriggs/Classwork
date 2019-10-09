@@ -14,7 +14,8 @@ class CheesesNew extends React.Component {
         origin: '',
         image: '',
         tastingNotes: ''
-      } 
+      },
+      errors: {}
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,7 +23,8 @@ class CheesesNew extends React.Component {
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
-    this.setState({ data })
+    const errors = { ...this.state.errors, [e.target.name]: '' }
+    this.setState({ data, errors })
   }
 
   handleSubmit(e) {
@@ -34,11 +36,11 @@ class CheesesNew extends React.Component {
       .then(res => {
         this.props.history.push(`/cheeses/${res.data._id}`)
       })
-      .catch(err => console.log(err))
+      .catch(err => this.setState({ errors: err.response.data.errors }))
   }
 
   render() {
-    console.log('re render', this.state.data)
+    console.log(this.state.errors)
     return (
       <section className="section">
         <div className="container">
@@ -46,6 +48,7 @@ class CheesesNew extends React.Component {
             data={this.state.data}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            errors={this.state.errors}
           />
         </div>
       </section>

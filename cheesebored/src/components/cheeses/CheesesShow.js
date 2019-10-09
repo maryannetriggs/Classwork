@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Auth from '../../lib/auth'
 
 class CheesesShow extends React.Component {
   constructor() {
@@ -9,6 +10,8 @@ class CheesesShow extends React.Component {
     this.state = {
       cheese: null
     }
+
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
@@ -16,6 +19,19 @@ class CheesesShow extends React.Component {
     axios.get(`https://cheesebored.herokuapp.com/cheeses/${cheeseId}`)
       .then(res => this.setState({ cheese: res.data }))
       .catch(err => console.log(err))
+  }
+
+  handleDelete() {
+    const cheeseId = this.props.match.params.id
+    axios.delete(`https://cheesebored.herokuapp.com/cheeses/${cheeseId}`, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+      .then(() => this.props.history.push('/cheeses'))
+      .catch(err => console.log(err))
+  }
+
+  isOwner() {
+    return Auth.getPayload().sub === this.state.cheese.user._id
   }
 
   render() {
@@ -39,9 +55,14 @@ class CheesesShow extends React.Component {
               <h4 className="title is-4">Origin</h4>
               <p>{cheese.origin}</p>
               <hr />
+              {this.isOwner() && 
+              <>
               <Link to={`/cheeses/${cheese._id}/edit`} className="button is-warning">
                 Edit
               </Link>
+              <button className="button is-danger" onClick={this.handleDelete}>Delete Cheese</button>
+              </>
+              }
             </div>
           </div>
         </div>

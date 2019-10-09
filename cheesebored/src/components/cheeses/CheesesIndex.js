@@ -19,7 +19,6 @@ class CheesesIndex extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     if (!this.state.cheeses) return null
     return (
       <section className="section">
