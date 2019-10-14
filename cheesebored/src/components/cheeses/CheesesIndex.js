@@ -30,6 +30,7 @@ class CheesesIndex extends React.Component {
           </div>
         </div>
       </section>
+      
     )
   }
 }
