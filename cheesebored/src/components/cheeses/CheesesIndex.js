@@ -13,7 +13,9 @@ class CheesesIndex extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://cheesebored.herokuapp.com/cheeses')
+    axios.get( {
+      
+    })
       .then(res => this.setState({ cheeses: res.data }))
       .catch(err => console.log(err))
   }

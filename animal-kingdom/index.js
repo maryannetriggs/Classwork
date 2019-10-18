@@ -1,22 +1,28 @@
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose') //Our ORM from MongoDB
-const bodyParser = require('body-parser') //To read body of requests
-const router = require('./config/router') //Getting our router module
+const express = require('express') // first of all, requruing the express framework
+const app = express() // invoking the framework
+const mongoose = require('mongoose') // our ORM for mongoDB
+const bodyParser = require('body-parser') // to read body of requests
+const router = require('./config/router') // getting our router module
 const logger = require('./lib/logger')
-const { dbURI , port } = require('./config/environment') //Location our local version of mongo runs on
+const errorHandler = require('./lib/errorHandler')
+const { dbURI, port } = require('./config/environment')  // location our local version of mongo runs on + db name (animal-kingdom), see /config/environment.js
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-  () => console.log('Mongo is connected')  
-) // Connecting our DB first
+mongoose.connect(dbURI, 
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  },
+  () => console.log('Mongo is connected')
+) // connecting our DB first
 
-app.use(bodyParser.json()) //Using body parser middleware ASAP
+app.use(express.static(`${__dirname}/dist`))
 
-app.use(logger) // Registering our custom logger middleware
+app.use(bodyParser.json()) // Using body parser middleware as soon as possible
 
-app.use(router) // Registering our router middleware, this leads to controllers ehich send responses ending the cycle
+app.use(logger) // registering our custom logger middleware, see notes in /lib/logger.js
 
-app.use('/*', (req, res) => res.status(404).json({ message: '404 - Not Found' }))
-// A catch all for any non-matching route
+app.use('/api', router) // registering our router middleware, this leads to controllers which send responses ending the cycle, imported above from /config/router
 
-app.listen(port, () => console.log(`Up and running on port: ${port}`))
+app.use(errorHandler)
+
+app.use('/*', (req, res) => res.status(404).json({ message: 'Not Found' }))
+// a catch all for any non matching route, we will update this eventually
+
+app.listen(port, () => console.log(`Up and running on port ${port}`)) // Asking our API to actually listen for the requests
