@@ -1,0 +1,9 @@
+
+// fixing margin on radios and checkboxes, being broken by react render on the whitespace
+input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+}
