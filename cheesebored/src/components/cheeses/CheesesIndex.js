@@ -13,14 +13,12 @@ class CheesesIndex extends React.Component {
   }
 
   componentDidMount() {
-    axios.get( {
-      
-    })
+    axios.get('https://cheesebored.herokuapp.com/cheeses')
       .then(res => this.setState({ cheeses: res.data }))
       .catch(err => console.log(err))
   }
 
-  render() {
+  render()  {
     if (!this.state.cheeses) return null
     return (
       <section className="section">
