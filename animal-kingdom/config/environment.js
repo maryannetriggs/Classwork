@@ -1,5 +1,6 @@
 // We store values in this environment file that we use commonly elsewhere in the app. The benefit to doing that is that if we need to change/update one of them, we only need to do it in 1 place, right here, and all the places where the values are imported will be correct. If we didn't do this, and wanted to change one of these values, we would have to find all uses of these values in our project and update them all one by one, long and easily leads to mistakes and bugs
-const dbURI = 'mongodb://localhost/animal-kingdom' // our location string for the DB, we connect to this using `mongoose.connect` (see index.js)
+const env = process.env.NODE_ENV || 'development'
+const dbURI = `mongodb://localhost/animal-kingdom-${env}` // our location string for the DB, we connect to this using `mongoose.connect` (see index.js)
 const port = 4000 // the port our app runs on localhost, used in index.js
 const secret = 'Shhhh it\'s a secret' // our secret used for encoing our JWT tokens, used in '/controllers/auth' and '/lib/secureRoute'
 

@@ -26,3 +26,5 @@ app.use('/*', (req, res) => res.status(404).json({ message: 'Not Found' }))
 // a catch all for any non matching route, we will update this eventually
 
 app.listen(port, () => console.log(`Up and running on port ${port}`)) // Asking our API to actually listen for the requests
+
+module.exports = app
