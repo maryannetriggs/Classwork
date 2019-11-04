@@ -1,15 +1,16 @@
-/* global describe beforeEach afterEach it expect api */
+/* global describe, beforeEach, afterEach, it, expect, api */
 const Animal = require('../../models/Animal')
 const User = require('../../models/User')
 
 describe('GET /animals', () => {
+
   beforeEach(done => {
     User.create({
       username: 'Jack',
       email: 'jack@email',
       password: 'pass',
       passwordConfirmation: 'pass'
-    })
+    }) 
       .then(user => {
         return Animal.create([
           {
@@ -36,9 +37,10 @@ describe('GET /animals', () => {
       })
       .then(() => done())
   })
+
   afterEach(done => {
     User.deleteMany()
-      .then(() => Animal.deleteMany({}))
+      .then(() => Animal.deleteMany())
       .then(() => done())
   })
 
@@ -87,7 +89,6 @@ describe('GET /animals', () => {
       })
   })
 
-
   it('should return the correct data types', done => {
     api.get('/api/animals')
       .end((err, res) => {
@@ -95,16 +96,14 @@ describe('GET /animals', () => {
           expect(animal._id).to.be.a('string')
           expect(animal.name).to.be.a('string')
           expect(animal.species).to.be.a('string')
-          expect(animal.isCarnivore).to.be.a('boolean')
           expect(animal.image).to.be.a('string')
+          expect(animal.isCarnivore).to.be.a('boolean')
           expect(animal.age).to.be.a('number')
-          expect(animal.dangerRating).to.be.a('number')
           expect(animal.user).to.be.an('object')
+          expect(animal.habitats).to.be.an('array')
         })
         done()
       })
   })
-
-  
 
 })

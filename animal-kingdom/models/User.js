@@ -9,7 +9,17 @@ const userSchema = new mongoose.Schema({ // Bulding a schema just like our anima
   timestamps: true // provides a createdAt, and updatedAt field that work out of the box for free!
 })
 
+// a virtual getter to show the users created animals
+userSchema.virtual('createdAnimals', {
+  ref: 'Animal',
+  localField: '_id',
+  foreignField: 'user'
+})
+
+userSchema.plugin(require('mongoose-unique-validator'))
+
 userSchema.set('toJSON', { // this is what prevents the pasword being sent when our user object is converted to JSON
+  virtuals: true, // sends our virtuals with the json response
   transform(doc, json) {
     delete json.password // we delete the password key of the json object here
     delete json.email // also deleting email- optional
@@ -23,7 +33,6 @@ userSchema
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation  = passwordConfirmation
   })
-
 
 // When we ask our model to create a new user (this happens in /controllers/auth in the register function, we make a call to User.create(....object)) mongoose runs through two steps, validate, where mongoose checks all the rquirements are met laid out in the schema above, and if it does, moves onto the save step, where it the new user is saved to the DB. We can write our own 'hooks' pre these events to perform more custom validations ourselves. Pre the validate phase we check the password and password confirmation match, if they do we allow it to move onto its own validations. Pre the save stage, we replace the users plain text password with a hashed version using the bcrypt library, then allow the save step.
 

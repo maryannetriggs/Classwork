@@ -6,9 +6,7 @@ function errorHandler(err, req, res, next) {
       errors[key] = err.errors[key].message
     }
 
-    err.errors = errors
-
-    return res.status(422).json({ message: 'Unprocessable entity', errors })
+    return res.status(422).json({ message: 'Unprocessable Entity', errors })
   }
   res.sendStatus(500)
   next(err)

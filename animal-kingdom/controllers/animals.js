@@ -51,11 +51,13 @@ function deleteRoute(req, res) {
   Animal
     .findById(req.params.id) // special method to find by the id and remove in one step
     .then(animal => {
-      if (!animal.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' }) // see above function for the same line
-      return animal.remove()
+      if (!animal.user.equals(req.currentUser._id)) { 
+        return res.status(401).json({ message: 'Unauthorized' })
+      } else {
+        animal.remove().then(() => res.sendStatus(204))
+      }
     })
-    .then(() => res.sendStatus(204)) // just send back a 204 with no content to show it has been deleted
-    // .catch(next) // send any errors if something goes wrong.
+    .catch(err => res.status(400).json(err)) // send any errors if something goes wrong.
 }
 
 // comment create - /animals/:id/comments 
@@ -73,17 +75,22 @@ function commentCreate(req, res, next) {
 }
 
 // comment delete - /aniamls/:id/comments/:commentId
-function commentDelete(req, res, next) {
+function commentDelete(req, res) {
   Animal
     .findById(req.params.id) // find the animal with the comment to be deleted
     .then(animal => {
       if (!animal) return res.status(404).json({ message: 'Not Found' })
       const comment = animal.comments.id(req.params.commentId) // find the comment on that animal that needs to be deleted
-      comment.remove() // remove that comment
-      return animal.save() //resave the animal with that new comment removed
+      // if (!comment.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' }) // check the user making the request is the same user that posted the comment, we know this from our current user as this is a secure route. If not, return unatuhorised and don't delete the comment
+      // comment.remove() // remove that comment
+      // return animal.save() //resave the animal with that new comment removed
+      if (!comment.user.equals(req.currentUser._id)) {
+        return res.status(401).json({ message: 'Unauthorized' }) 
+      } else {
+        return animal.save().then(() => res.sendStatus(204))
+      }
     })
-    .then(animal => res.status(202).json(animal)) //send back the animal without the removed comment
-    .catch(next) //send any errors
+    .catch(err => res.json(err)) //send any errors
 }
 
 

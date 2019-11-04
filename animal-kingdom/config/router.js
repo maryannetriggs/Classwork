@@ -18,7 +18,7 @@ router.route('/animals/:id/comments') // route to create, follows the idea we ar
   .post(secureRoute, animals.commentCreate)
 
 router.route('/animals/:id/comments/:commentId') // same as above but with an id of the comment so we can identify which comment it is we are trying to delete
-  .delete(animals.commentDelete)
+  .delete(secureRoute, animals.commentDelete)
 
 router.route('/register') // just handling the register controller
   .post(users.register)

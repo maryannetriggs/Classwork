@@ -7,10 +7,7 @@ const logger = require('./lib/logger')
 const errorHandler = require('./lib/errorHandler')
 const { dbURI, port } = require('./config/environment')  // location our local version of mongo runs on + db name (animal-kingdom), see /config/environment.js
 
-mongoose.connect(dbURI, 
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  },
-  () => console.log('Mongo is connected')
-) // connecting our DB first
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  }) // connecting our DB first
 
 app.use(express.static(`${__dirname}/dist`))
 
@@ -20,7 +17,7 @@ app.use(logger) // registering our custom logger middleware, see notes in /lib/l
 
 app.use('/api', router) // registering our router middleware, this leads to controllers which send responses ending the cycle, imported above from /config/router
 
-app.use(errorHandler)
+app.use(errorHandler) // registering our global error handler, we only throw validation errors to this, see controllers for animals create and update and user register.
 
 app.use('/*', (req, res) => res.status(404).json({ message: 'Not Found' }))
 // a catch all for any non matching route, we will update this eventually
