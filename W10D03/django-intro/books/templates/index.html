@@ -1,0 +1,12 @@
+<h1>Books Index Page</h1>
+
+{% for book in books %}
+<a href="books/{{ book.id }}">
+  <div>
+    <img src="{{ book.image }}" alt="{{ book.name }}">
+    <h3>{{ book.title }}</h3>
+    <h4>{{ book.author }}</h4>
+  </div>
+</a>
+
+{% endfor %}
