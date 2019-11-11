@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework import serializers
 
 # Create your models here.
 class Book(models.Model):
@@ -8,3 +9,11 @@ class Book(models.Model):
 
     def __str__(self):
         return f'{self.title} = {self.author}'
+
+class BookSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'author', 'image')
+
+

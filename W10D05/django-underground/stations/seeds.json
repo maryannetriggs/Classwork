@@ -1,0 +1,174 @@
+[
+{
+  "model": "stations.line",
+  "pk": 1,
+  "fields": {
+    "line": "Circle"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 2,
+  "fields": {
+    "line": "District"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 3,
+  "fields": {
+    "line": "Piccadilly"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 4,
+  "fields": {
+    "line": "Jubilee"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 5,
+  "fields": {
+    "line": "Northern"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 6,
+  "fields": {
+    "line": "Victoria"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 7,
+  "fields": {
+    "line": "Metropolitan"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 8,
+  "fields": {
+    "line": "Bakerloo"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 9,
+  "fields": {
+    "line": "Hammersmith & City"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 10,
+  "fields": {
+    "line": "Central"
+  }
+},
+{
+  "model": "stations.line",
+  "pk": 11,
+  "fields": {
+    "line": "Waterloo & City"
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 1,
+  "fields": {
+    "zone": 1
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 2,
+  "fields": {
+    "zone": 2
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 3,
+  "fields": {
+    "zone": 3
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 4,
+  "fields": {
+    "zone": 4
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 5,
+  "fields": {
+    "zone": 5
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 6,
+  "fields": {
+    "zone": 6
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 7,
+  "fields": {
+    "zone": 7
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 8,
+  "fields": {
+    "zone": 8
+  }
+},
+{
+  "model": "stations.zone",
+  "pk": 9,
+  "fields": {
+    "zone": 9
+  }
+},
+{
+  "model": "stations.station",
+  "pk": 1,
+  "fields": {
+    "name": "Aldgate East",
+    "lat": 51.553,
+    "lon": 0.072,
+    "is_night_tube": false,
+    "zone": 1,
+    "lines": [
+      2,
+      9
+    ]
+  }
+},
+{
+  "model": "stations.station",
+  "pk": 2,
+  "fields": {
+    "name": "Liverpool Street",
+    "lat": 51.5188,
+    "lon": 0.0814,
+    "is_night_tube": true,
+    "zone": 1,
+    "lines": [
+      1,
+      7,
+      9,
+      10
+    ]
+  }
+}
+]
