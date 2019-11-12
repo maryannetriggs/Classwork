@@ -1,3 +1,4 @@
+# pylint: disable=no-member,arguments-differ
 from rest_framework import serializers
 from .models import Station, Zone, Line
 
