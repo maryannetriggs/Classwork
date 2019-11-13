@@ -20,15 +20,15 @@ class Station(models.Model):
     lon = models.FloatField()
     is_night_tube = models.BooleanField(default=False)
     zone = models.ForeignKey(
-      Zone,
-      related_name='stations',
-      on_delete=models.DO_NOTHING,
-      null=True
+        Zone,
+        related_name='stations',
+        on_delete=models.DO_NOTHING,
+        null=True
     )
     lines = models.ManyToManyField(
-      Line,
-      related_name='stations',
-      blank=True
+        Line,
+        related_name='stations',
+        blank=True
     )
 
     def __str__(self):

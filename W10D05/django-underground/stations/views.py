@@ -1,17 +1,17 @@
 # pylint: disable=no-member
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, RetrieveAPIView
-from rest_framework.permissions import isAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Station, Line, Zone
 from .serializers import StationSerializer, LineSerializer, ZoneSerializer
 
 # Create your views here.
 class StationListView(ListCreateAPIView):
-    permission_classes = (isAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
     queryset = Station.objects.all()
     serializer_class = StationSerializer
 
 class StationDetailView(RetrieveUpdateDestroyAPIView):
-    permission_classes = (isAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
     queryset = Station.objects.all()
     serializer_class = StationSerializer
 

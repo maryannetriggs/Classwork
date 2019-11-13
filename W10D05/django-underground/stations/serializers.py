@@ -57,6 +57,22 @@ class StationSerializer(serializers.ModelSerializer):
         station.lines.set(lines) # now we can set those lines
         return station # returning the newly created station to be sent in the response to the client
 
+    def update(self, station, data):
+        zone_data = data.pop('zone')
+        lines_data = data.pop('lines')
+
+        station.name = data.get('name', station.name)
+        station.lat = data.get('lat', station.lat)
+        station.lon = data.get('lon', station.lon)
+        station.is_night_tube = data.get('is_night_tube', station.is_night_tube)
+
+        station.zone = Zone.objects.get(**zone_data)
+        lines = [line.objects.get(**line_data) for line_data in lines_data]
+
+        station.save()
+        station.lines.set(lines)
+        return station
+
     class Meta:
         model = Station
         fields = ('id', 'name', 'lat', 'lon', 'is_night_tube', 'zone', 'lines')

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'stations',
-    'jwt_auth'
+    'jwt_auth',
+    'frontend'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
 }
+
+AUTH_USER_MODEL = 'jwt_auth.User'
