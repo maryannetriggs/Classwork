@@ -14,19 +14,17 @@ const testAnimal = { // the aniaml we will be attempting to create in our tests
   habitats: ['Pride Rock', 'Africa', 'Jungle']
 }
 
-const testUserData = {
-  username: 'test',
-  email: 'testk@email',
-  password: 'test',
-  passwordConfirmation: 'test'
-}
-
 describe('POST /animals', () => {
 
   let token = null // similar to our show tests with animal id, we are going to store the token of our created test user here, so we can use it in subsquent tests.
 
   beforeEach(done => {
-    User.create(testUserData)
+    User.create({
+      username: 'Jack',
+      email: 'jack@email',
+      password: 'pass',
+      passwordConfirmation: 'pass'
+    })
       .then(user => {
         token = jwt.sign({ sub: user._id }, secret, { expiresIn: '6h' }) // signing the jwt token for our created user
         done()

@@ -9,17 +9,9 @@ const userSchema = new mongoose.Schema({ // Bulding a schema just like our anima
   timestamps: true // provides a createdAt, and updatedAt field that work out of the box for free!
 })
 
-// a virtual getter to show the users created animals
-userSchema.virtual('createdAnimals', {
-  ref: 'Animal',
-  localField: '_id',
-  foreignField: 'user'
-})
-
 userSchema.plugin(require('mongoose-unique-validator'))
 
 userSchema.set('toJSON', { // this is what prevents the pasword being sent when our user object is converted to JSON
-  virtuals: true, // sends our virtuals with the json response
   transform(doc, json) {
     delete json.password // we delete the password key of the json object here
     delete json.email // also deleting email- optional

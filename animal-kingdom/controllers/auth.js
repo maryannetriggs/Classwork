@@ -25,11 +25,9 @@ function login(req, res) {
     .catch(() => res.status(401).json({ message: 'Unauthorized' } ))
 }
 
-// profile route  /profile
 function profile(req, res) { // route for a user profile
   User
     .findById(req.currentUser._id) // this must be a secureRoute, it uses the user id gathered from the token, to find the user in our DB
-    .populate('createdAnimals')
     .then(user => res.status(200).json(user)) //sending the found user back
     .catch(err => res.json(err)) // sending any errors
 }
